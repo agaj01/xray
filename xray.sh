@@ -219,8 +219,8 @@ gen_reality_keys() {
   local KEYS PRIVATE_KEY PUBLIC_KEY
   KEYS="$("$XRAY_BIN" x25519 2>/dev/null || true)"
 
-  PRIVATE_KEY="$(echo "$KEYS" | awk -F'[: ]+' '/PrivateKey|Private key/ {print $2; exit}')"
-  PUBLIC_KEY="$(echo "$KEYS"  | awk -F'[: ]+' '/Password|Public key/ {print $2; exit}')"
+  PRIVATE_KEY="$(echo "$KEYS" | awk '/Private/{print $NF; exit}')"
+  PUBLIC_KEY="$(echo "$KEYS"  | awk '/Password|Public/{print $NF; exit}')"
 
   [[ -n "$PRIVATE_KEY" && -n "$PUBLIC_KEY" ]] || {
     echo "密钥生成/解析失败，输出如下："
