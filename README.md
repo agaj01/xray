@@ -77,7 +77,7 @@
 ## 安装与运行（推荐）
 
 ```bash
-curl -O https://raw.githubusercontent.com/li210724/xray/main/xray.sh
+curl -O https://raw.githubusercontent.com/agaj01/xray/main/xray.sh
 chmod +x xray.sh
 bash xray.sh
 ```
